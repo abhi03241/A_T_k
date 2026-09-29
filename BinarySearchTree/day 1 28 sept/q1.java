@@ -1,7 +1,7 @@
+
 // 450. Delete Node in a BST
 
-//Definition for a binary tree node.
- class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -21,6 +21,7 @@
 }
 
 class Solution {
+
     public TreeNode deleteNode(TreeNode root, int key) {
 
         // Tree/subtree is empty
@@ -41,7 +42,6 @@ class Solution {
         // We found the node
         else {
 
-            // Case 1 and Case 2:
             // No left child
             if (root.left == null) {
                 return root.right;
@@ -52,7 +52,7 @@ class Solution {
                 return root.left;
             }
 
-            // Case 3: Two children
+            // Two children
             // Find the smallest node in the right subtree
             TreeNode successor = root.right;
 
@@ -69,4 +69,50 @@ class Solution {
 
         return root;
     }
-}
+
+    // Inorder traversal
+    public static void inorder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        inorder(root.left);
+        System.out.print(root.val + " ");
+        inorder(root.right);
+    }
+
+    public static void main(String[] args) 
+    {
+
+        /*
+                 5
+                / \
+               3   6
+              / \   \
+             2   4   7
+
+             Delete 3
+        */
+
+        TreeNode root = new TreeNode(5);
+
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(6);
+
+        root.left.left = new TreeNode(2);
+        root.left.right = new TreeNode(4);
+
+        root.right.right = new TreeNode(7);
+
+        System.out.println("Before deletion:");
+        inorder(root);
+
+        int key = 3;
+
+        Solution obj = new Solution();
+        root = obj.deleteNode(root, key);
+
+        System.out.println("\nAfter deletion:");
+        inorder(root);
+    }
+} // end of Solution
