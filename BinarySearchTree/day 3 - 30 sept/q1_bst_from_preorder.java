@@ -1,7 +1,7 @@
-class Solution {
-
-    public TreeNode helper(int[] preorder, int[] i, int bound) {
-
+class Solution 
+{
+    public TreeNode helper(int[] preorder, int[] i, int bound) 
+    {
         // Stop if:
         // 1. We reached the end of the array
         // 2. Current value is greater than the allowed bound
@@ -24,7 +24,8 @@ class Solution {
         return root;
     }
 
-    public TreeNode bstFromPreorder(int[] preorder) {
+    public TreeNode bstFromPreorder(int[] preorder) 
+    {
 
         // i must be shared by all recursive calls
         int[] i = {0};
