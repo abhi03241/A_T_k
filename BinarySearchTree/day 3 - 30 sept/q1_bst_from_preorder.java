@@ -5,9 +5,7 @@ class Solution
         // Stop if:
         // 1. We reached the end of the array
         // 2. Current value is greater than the allowed bound
-        if (i[0] >= preorder.length || preorder[i[0]] > bound) {
-            return null;
-        }
+        if (i[0] >= preorder.length || preorder[i[0]] > bound) return null;
 
         // Create the current node
         TreeNode root = new TreeNode(preorder[i[0]]);
